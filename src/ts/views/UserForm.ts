@@ -1,7 +1,7 @@
 export class UserForm {
     constructor(public parent: Element) {}
 
-    eventsMap(): { [key: string]: () => void } {
+    eventsMap(): { [key: string]: (e?: Event) => void } {
         return {
             'click:button': this.onButtonClick,
             'mouseenter:h1': this.onHeaderHover
@@ -17,16 +17,6 @@ export class UserForm {
         console.log('Hi');
     }
 
-    template(): string {
-        return `
-            <div>
-                <h1>User Form</h1>
-                <input />
-                <button>Submit</button>
-            </div>
-        `;
-    }
-
     bindEvents(fragment: DocumentFragment): void {
         const eventsMap = this.eventsMap();
 
@@ -37,6 +27,16 @@ export class UserForm {
                 element.addEventListener(eventName, eventsMap[eventKey]);
             });
         }
+    }
+
+    template(): string {
+        return `
+            <div>
+                <h1>User Form</h1>
+                <input />
+                <button>Submit</button>
+            </div>
+        `;
     }
 
     render(): void {
