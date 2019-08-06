@@ -1,13 +1,9 @@
 import { User } from './Models';
 
-const user = new User({ name: 'mac', age: 20 });
-user.on('change', () => {
-    alert(1);
-});
-user.on('change1', () => {
-    alert(2);
-});
-user.remove('change');
-user.trigger('change');
+const user = new User({ id: 1 });
 
-console.log(user);
+user.fetch();
+
+setTimeout(() => {
+    console.log(user);
+}, 100);

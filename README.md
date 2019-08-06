@@ -2,6 +2,8 @@
 
 -   typescript
 -   parceljs
+-   axios
+-   json-server
 
 ## TIL
 
@@ -15,6 +17,7 @@ npm install -g json-server
 ```
 
 -   db.json
+-   This file will be updated automatically
 
 ```json
 {
@@ -26,5 +29,13 @@ npm install -g json-server
 -   start server
 
 ```bash
-json-server -w db.json
+json-server --watch db.json --port 5000
+```
+
+-   query
+
+```typescript
+import axios from 'axios';
+
+axios.post('http://localhost:...', { name: 'jimmy' });
 ```
