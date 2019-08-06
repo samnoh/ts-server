@@ -39,3 +39,28 @@ import axios from 'axios';
 
 axios.post('http://localhost:...', { name: 'jimmy' });
 ```
+
+### Generic Constraints
+
+```TypeScript
+interface UserProps {
+    id?: number;
+    name?: string;
+    age?: number;
+}
+
+const data: UserProps = {
+    id: 1,
+    name: 'Smith',
+    age: 30
+}
+
+const getUser = <K extends keyof UserProps>(key: K): UserProps[K] => {
+    return data[key];
+}
+
+const a = getUser('name');
+console.log(a);
+
+const b = getUser('abc'); // error
+```
