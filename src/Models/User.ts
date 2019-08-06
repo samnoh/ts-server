@@ -14,13 +14,14 @@ const rootUrl = 'http://localhost:5000/users';
 
 export class User {
     public events: Eventing = new Eventing();
-    public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
     public attributes: Attributes<UserProps>;
+    public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
 
     constructor(attrs: UserProps) {
         this.attributes = new Attributes<UserProps>(attrs);
     }
 
+    // events
     get on() {
         return this.events.on;
     }
@@ -33,6 +34,7 @@ export class User {
         return this.events.trigger;
     }
 
+    // attributes
     get get() {
         return this.attributes.get;
     }
@@ -42,6 +44,7 @@ export class User {
         this.events.trigger('change');
     }
 
+    // sync
     fetch(): void {
         const id = this.attributes.get('id');
         if (typeof id !== 'number') throw new Error('Cannot fetch without an id');

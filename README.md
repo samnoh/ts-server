@@ -32,14 +32,6 @@ npm install -g json-server
 json-server --watch db.json --port 5000
 ```
 
--   query & mutation
-
-```typescript
-import axios from 'axios';
-
-axios.post('http://localhost:...', { name: 'jimmy' });
-```
-
 ### Generic Constraints
 
 ```TypeScript
