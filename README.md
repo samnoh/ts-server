@@ -32,7 +32,7 @@ npm install -g json-server
 json-server --watch db.json --port 5000
 ```
 
--   query
+-   query & mutation
 
 ```typescript
 import axios from 'axios';
