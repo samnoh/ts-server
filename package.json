@@ -5,7 +5,9 @@
     "private": true,
     "main": "src/index.js",
     "scripts": {
-        "start": "parcel src/index.html --port 3000 --open --out-dir .cache --no-source-maps --no-cache",
+        "start": "concurrently npm:start:*",
+        "start:db": "json-server -w db.json",
+        "start:parcel": "parcel src/index.html --port 3000 --open --out-dir .cache --no-source-maps --no-cache",
         "build": "rm -rf build && parcel build src/index.html --out-dir build --no-cache --no-source-maps --public-url '.'",
         "clean": "rm -rf .cache build"
     },
@@ -24,6 +26,7 @@
     },
     "homepage": "https://github.com/samnoh/ts-server#readme",
     "devDependencies": {
+        "concurrently": "^4.1.1",
         "json-server": "^0.15.0",
         "parcel-bundler": "^1.12.3",
         "typescript": "^3.5.3"
