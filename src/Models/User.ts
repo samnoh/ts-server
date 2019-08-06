@@ -44,8 +44,22 @@ export class User {
         });
     }
 
-    async fetch() {
-        const res: AxiosResponse = await axios.get(`http://localhost:5000/users/${this.get('id')}`);
-        this.set(res.data);
+    async fetch(): Promise<void> {
+        const data: UserProps = await axios
+            .get(`http://localhost:5000/users/${this.get('id')}`)
+            .then((res: AxiosResponse) => res.data);
+
+        this.set(data);
+    }
+
+    async save(): Promise<void> {
+        const id = this.get('id');
+
+        if (id) {
+            await axios.put(`http://localhost:5000/users/${id}`, this.data);
+            return;
+        }
+
+        await axios.post(`http://localhost:5000/users/`, this.data); // id; auto-increment
     }
 }
