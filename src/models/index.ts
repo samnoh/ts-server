@@ -1,5 +1,4 @@
-import { Collection } from './Collection';
+import { Collection, Model } from './lib';
 import { User, UserProps } from './User';
-import { Model } from './Model';
 
 export { Collection, User, UserProps, Model };

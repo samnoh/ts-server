@@ -1,4 +1,4 @@
-import { Model } from '../models';
+import { Model } from '../../models';
 
 export abstract class View<T extends Model<K>, K> {
     abstract template(): string;

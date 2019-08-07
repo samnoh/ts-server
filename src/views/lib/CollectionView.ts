@@ -1,4 +1,4 @@
-import { Collection } from '../models';
+import { Collection } from '../../models';
 
 export abstract class CollectionView<T, K> {
     abstract renderItem(model: T, itemParent: Element): void;

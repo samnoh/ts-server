@@ -1,5 +1,5 @@
-import { View } from './View';
-import { User, UserProps } from '../models';
+import { View } from '../lib';
+import { User, UserProps } from '../../models';
 import { UserShow } from './UserShow';
 import { UserForm } from './UserForm';
 
