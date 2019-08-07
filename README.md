@@ -57,7 +57,7 @@ console.log(a);
 const b = getUser('abc'); // error
 ```
 
-### Await/Async in TS + Parcel
+### Async/Await in TS + Parcel
 
 -   package.json
     -   [browserslist](https://github.com/browserslist/browserslist)
