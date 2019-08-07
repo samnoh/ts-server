@@ -60,7 +60,7 @@ const b = getUser('abc'); // error
 ### Await/Async in TS + Parcel
 
 -   package.json
--   [browserslist](https://github.com/browserslist/browserslist)
+    -   [browserslist](https://github.com/browserslist/browserslist)
 
 ```json
 "browserslist": [
