@@ -19,4 +19,8 @@ export class ApiSync<T extends HasId> {
         }
         return axios.post(this.rootUrl, { ...data }); // id; auto-increment
     }
+
+    delete(id: number): AxiosPromise {
+        return axios.delete(`${this.rootUrl}/${id}`);
+    }
 }

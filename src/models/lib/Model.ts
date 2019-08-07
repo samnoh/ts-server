@@ -9,6 +9,7 @@ interface ModelAttributes<T> {
 interface Sync<T> {
     fetch(id: number): AxiosPromise;
     save(data: T): AxiosPromise;
+    delete(id: number): AxiosPromise;
 }
 
 interface Events {
@@ -40,10 +41,10 @@ export class Model<T extends HasId> {
 
     set(update: T): void {
         this.attributes.set(update);
-        this.events.trigger('change');
+        this.trigger('change');
     }
 
-    // sync
+    // ApiSync
     fetch(): void {
         const id = this.get('id');
 
@@ -59,6 +60,17 @@ export class Model<T extends HasId> {
         this.sync
             .save(this.attributes.getAll())
             .then((response: AxiosResponse): void => this.trigger('save'))
+            .catch(() => this.trigger('error'));
+    }
+
+    delete(): void {
+        const id = this.get('id');
+
+        if (typeof id !== 'number') throw new Error('Cannot delete without an id');
+
+        this.sync
+            .delete(id)
+            .then((response: AxiosResponse): void => location.reload())
             .catch(() => this.trigger('error'));
     }
 }

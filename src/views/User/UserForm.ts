@@ -6,7 +6,8 @@ export class UserForm extends View<User, UserProps> {
         return {
             'click:.setName': this.onSetNameClick,
             'click:.setAge': this.onSetAgeClick,
-            'click:.saveModel': this.onSaveClick
+            'click:.saveModel': this.onSaveClick,
+            'click:.removeModel': this.onRemoveClick
         };
     }
 
@@ -29,6 +30,10 @@ export class UserForm extends View<User, UserProps> {
         this.model.save();
     };
 
+    onRemoveClick = (): void => {
+        this.model.delete();
+    };
+
     template(): string {
         return `
             <div>
@@ -36,6 +41,9 @@ export class UserForm extends View<User, UserProps> {
                 <button class="setName">Change Name</button>
                 <button class="setAge">Set Random Age</button>
                 <button class="saveModel">Save</button>
+                <button class="removeModel">Remove</button>
+                <hr>
+                <br>
             </div>
         `;
     }
