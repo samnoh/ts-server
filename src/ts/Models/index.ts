@@ -1,3 +1,4 @@
-import { User } from './User';
+import { User, UserProps } from './User';
+import { Model } from './Model';
 
-export { User };
+export { User, UserProps, Model };
