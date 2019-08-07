@@ -1,4 +1,4 @@
-# TypeScript Web Framework
+# TypeScript Simple Web Framework
 
 -   typescript
 -   parceljs
