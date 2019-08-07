@@ -1,3 +1,5 @@
+import { UserEdit } from './UserEdit';
 import { UserForm } from './UserForm';
+import { UserList } from './UserList';
 
-export { UserForm };
+export { UserEdit, UserForm, UserList };

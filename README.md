@@ -56,3 +56,28 @@ console.log(a);
 
 const b = getUser('abc'); // error
 ```
+
+### Await/Async in TS + Parcel
+
+-   package.json
+-   [browserslist][https://github.com/browserslist/browserslist]
+
+```json
+"browserslist": [
+    "last 2 years"
+]
+```
+
+-   tsconfig.json
+
+```json
+"target": "es2015"
+```
+
+-   return type
+
+```TypeScript
+const test = async (id: number): Promise<void> => {
+    const data: AxiosResponse = await axios.get(`http://example.com/${id}`);
+}
+```
